@@ -1,39 +1,52 @@
-# Storefront_backend_udacity
-## Database Schema
-### Users Table
-|id |email | fisrtname | lastname | password |
-|:--- |:--- | ---: | :---:| :---:|
-### Products Table
-|id |name | price | category |
-|:--- |:--- | ---: | :---:|
-### Orders Table
-|id |user_id | order_status |
-|:--- |:--- | ---: |
-### Orders_products Table
-|id |order_id | product_id | product_quantity |
-|:--- |:--- | ---: | ---: |
+# Storefront backend Udacity
+Welcome to our store backend
 
- 
-## Endpoints
-### Users
-|METHOD |ENDPOINT | REQUEST BODY & PARAMS | RESPONSE |
-|:--- |:--- | ---: | :---:|
-|GET |  localhost:3000/api/users  | NEED AUTH | List of all users | 
-|GET |  localhost:3000/api/users/:id   | id of the user && NEED AUTH  | List Single user |
-|POST|  localhost:3000/api/users   | { email, firstname, lastname, password } && NEED AUTH  | Created user |
-|POST|  localhost:3000/api/users/authenticate   | { email, password }  | Authenticated User |
+## Installtion
+We have a minor steps to install the packges first before work with the server and the database.
+Fisrt we need to install the required packges using the following command:
 
-### Products
-|METHOD |ENDPOINT | REQUEST BODY & PARAMS | RESPONSE |
-|:--- |:--- | ---: | :---:|
-|GET |  localhost:3000/api/products  | | List of all products | 
-|GET |  localhost:3000/api/products/:id  | id of the product | List Single product |
-|POST|  localhost:3000/api/products   | NEED AUTH && { name, prcie, category } | Created product |
+    npm install
 
-### Orders
-|METHOD |ENDPOINT | REQUEST BODY & PARAMS | RESPONSE |
-|:--- |:--- | ---: | :---:|
-|GET |  localhost:3000/api/user/:id/orders  | NEED AUTH && user id | List of all orders for the user | 
-|POST |  localhost:3000/api/user/:id/orders  | NEED AUTH && user id | Created order |
-|POST|  localhost:3000/api/user/:id/orders/add-product  | NEED AUTH && user id && { order_id, product_id, product_quantity } | Added product order record|
+Our server is listen at port:
+    
+    localhost:3000 
+    
+and our database listen at port:
 
+    localhost:5432
+## Database Setup
+
+We used a postgresSQL for the database and you have to install it locally first, You could use the following link to setup it:
+
+[https://www.guru99.com/download-install-postgresql.html]
+
+after installation done, open the psql terminal then do the following steps:
+
+    *** Create user ***
+    CREATE USER storefront_backend_admin WITH PASSWORD 'password123';
+
+    *** Create database *** 
+    CREATE DATABASE storefront_backend_db;
+
+    *** Grant all database privileges to the created user ***
+    GRANT ALL PRIVILEGES ON DATABASE storefront_backend_db TO storefront_backend_admin;
+
+You have to run the server and the database first before access the API's
+
+To run the server you could use the following command:
+
+    npm run build
+    npm run start
+
+## Testing
+
+You could use the testing commands using the following: 
+
+    npm run test
+
+## Database migrations
+
+If there is any database chanes you could access the migrations and edit the SQL files then use the following commands:
+
+    db-migrate down // to Drop the tables
+    db-migrate up // to Create the tables
