@@ -100,7 +100,7 @@ const authenticate = async (req: Request, res: Response) => {
 const users_routes = (app: express.Application) => {
   app.get('/api/users', tokenValidator, index)
   app.get('/api/users/:id', tokenValidator, show)
-  app.post('/api/users', tokenValidator, create)
+  app.post('/api/users', create)
   app.post('/api/users/authenticate', authenticate)
 }
 
