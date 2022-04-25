@@ -50,3 +50,15 @@ If there is any database chanes you could access the migrations and edit the SQL
 
     db-migrate down // to Drop the tables
     db-migrate up // to Create the tables
+    
+### ENV Variables:
+
+    POSTGRES_HOST
+    POSTGRES_DB
+    POSTGRES_TEST
+    POSTGRES_USER
+    POSTGRES_PASSWORD
+    ENV
+    BCRYPT_PASSWORD
+    SALT_ROUNDS
+    TOKEN_SECRET
