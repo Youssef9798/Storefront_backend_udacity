@@ -5,7 +5,7 @@ dotenv.config()
 
 const { ENV, POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD } =
   process.env
-let Client;
+let Client: Pool;
 
 if( ENV === 'dev') {
    Client = new Pool({
