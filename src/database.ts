@@ -3,7 +3,7 @@ import { Pool } from 'pg'
 
 dotenv.config()
 
-const { ENV, POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD } =
+const { ENV, POSTGRES_TEST, POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD } =
   process.env
 let Client: Pool;
 
