@@ -6,8 +6,10 @@ dotenv.config()
 const { ENV, POSTGRES_TEST, POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD } =
   process.env
 
+let Client: Pool = new Pool();
+
 if( ENV === 'dev') {
-   let Client = new Pool({
+   Client = new Pool({
     host: POSTGRES_HOST,
     user: POSTGRES_USER,
     password: POSTGRES_PASSWORD,
@@ -16,7 +18,7 @@ if( ENV === 'dev') {
 }
 
 if( ENV === 'test') {
-  let Client = new Pool({
+  Client = new Pool({
     host: POSTGRES_HOST,
     user: POSTGRES_USER,
     password: POSTGRES_PASSWORD,
